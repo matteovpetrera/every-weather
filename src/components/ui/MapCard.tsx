@@ -2,7 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "./card";
 
 export default function MapCard(props: any) {
   const apikey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+  const apikey2 = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
   const city = props.city;
+
   let url = `https://maps.googleapis.com/maps/api/staticmap?center=${city}&zoom=11&size=700x700&key=${apikey}`;
 
   if (city === "") {

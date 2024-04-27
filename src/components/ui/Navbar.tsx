@@ -45,16 +45,20 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 export default function Navbar() {
-  const { setTheme } = useTheme();
+  let logo = "black-logo.png";
+  const { resolvedTheme, setTheme } = useTheme();
+  if (resolvedTheme == "light") logo = "black-logo.png";
+  else if (resolvedTheme == "dark") logo = "white-logo.png";
 
   return (
     <nav className="sticky">
       <div className="flex justify-between ml-6 mr-6 p-2">
+        {/* LOGO */}
+        <div className="flex pt-3">
+          <img className="h-5" src={logo}></img>
+        </div>
         <NavigationMenu>
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <img className="h-7 pr-3" src="Every.png"></img>
-            </NavigationMenuItem>
             {/* FORECAST ELEMEMT */}
             <NavigationMenuItem>
               <NavigationMenuTrigger>Forecast</NavigationMenuTrigger>
@@ -116,7 +120,7 @@ export default function Navbar() {
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon">
+              <Button className="border-none" variant="outline" size="icon">
                 <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 <span className="sr-only">Toggle theme</span>

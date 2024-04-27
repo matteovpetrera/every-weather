@@ -1,15 +1,15 @@
-import { Cloud, Droplets, Sun, Wind } from "lucide-react";
+import { Cloudy, Droplets, Sun, Wind } from "lucide-react";
 
 export default function WeatherDynamicIcon(arg: any) {
   const description = arg.descr[0];
 
   if (description == "Clouds") {
-    return <Cloud size={50}></Cloud>;
+    return <Cloudy size={60}></Cloudy>;
   } else if (description == "Clear") {
-    return <Sun size={50}></Sun>;
+    return <Sun size={60}></Sun>;
   } else if (description == "Rain") {
-    return <Droplets size={50}></Droplets>;
+    return <Droplets size={60}></Droplets>;
   } else if (description == "Squall") {
-    return <Wind size={50}></Wind>;
+    return <Wind size={60}></Wind>;
   }
 }
