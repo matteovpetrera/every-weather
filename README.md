@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EveryWeather
 
-## Getting Started
+EveryWeather è un'applicazione web che ti consente di visualizzare le previsioni meteo di una città specifica utilizzando le API fornite da OpenWeather.
 
-First, run the development server:
+## Caratteristiche
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Visualizzazione Meteo:** Puoi cercare una città e visualizzare le previsioni meteo attuali e future per quella località.
+- **Dettagli Meteo:** Oltre alla temperatura attuale, EveryWeather fornisce dettagli come la sensazione termica, l'umidità, la velocità del vento e altro ancora.
+- **Ricerca per Località:** Basta inserire il nome della città desiderata e EveryWeather fornirà le previsioni meteo per quella località.
+- **Dashboard Moderna:** L'applicazione è utilizza componenti forniti da ui.shadcn.com rendendo l'interfaccia grafica moderna e attuale.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologie Utilizzate
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 14:** Framework JavaScript per lo sviluppo di applicazioni web, basato su React. Offre rendering del lato server e supporto per React Hooks, tra le altre caratteristiche.
+- **OpenWeather API:** Fornisce dati meteorologici in tempo reale e previsioni per città specifiche.
+- **Tailwind CSS:** Un framework CSS utilizzato per la progettazione di interfacce utente moderne e reattive.
+- **Shadcn UI:** Una libreria per componenti react utilizzata per migliorare l'aspetto visivo dell'applicazione.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installazione
 
-## Learn More
+1. Clona questo repository sul tuo computer.
+2. Assicurati di avere Node.js installato.
+3. Esegui `npm install` per installare le dipendenze.
+4. Crea un file `.env.local` nella radice del progetto e aggiungi la tua chiave API OpenWeather come `NEXT_PUBLIC_OPENWEATHER_API_KEY=<chiave_api>`.
 
-To learn more about Next.js, take a look at the following resources:
+## Utilizzo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Avvia l'applicazione eseguendo `npm run dev` nella tua console.
+2. Apri il tuo browser e vai a `http://localhost:3000`.
+3. Nella barra di ricerca, inserisci il nome della città di cui desideri visualizzare il meteo e premi Invio.
+4. Visualizza le previsioni meteo per la città selezionata.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributi
 
-## Deploy on Vercel
+Se vuoi contribuire a EveryWeather, segui questi passaggi:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Forka questo repository.
+2. Crea un branch con la tua feature: `git checkout -b feature/NuovaFeature`.
+3. Committa le tue modifiche: `git commit -m 'Aggiungi NuovaFeature'`.
+4. Pusha il tuo branch: `git push origin feature/NuovaFeature`.
+5. Apri una Pull Request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Crediti
+
+EveryWeather è stato creato da Matteo Petrera. Questo progetto utilizza dati forniti da OpenWeather.
