@@ -48,4 +48,22 @@ async function fetchAirPollutionData(lat: string, lon: string): Promise<any> {
   }
 }
 
-export { fetchMain, fetchWeather, fetchData, fetchAirPollutionData };
+async function fetchForecastData(city: string): Promise<any> {
+  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`;
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.error("errore di tipo", error);
+    throw error;
+  }
+}
+
+export {
+  fetchMain,
+  fetchWeather,
+  fetchData,
+  fetchAirPollutionData,
+  fetchForecastData,
+};

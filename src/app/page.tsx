@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  fetchMain,
-  fetchWeather,
-  fetchData,
-  fetchAirPollutionData,
-} from "@/components/api/fetch-data";
+import { fetchData, fetchForecastData } from "@/components/api/fetch-data";
 import DetailsCard from "@/components/ui/DetailsCard";
 import ForecastCard from "@/components/ui/ForecastCard";
 import GraphCard from "@/components/ui/GraphCard";
@@ -23,6 +18,7 @@ export default function Home() {
   const [data, setData] = useState({});
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
+  const [list, setList] = useState();
 
   let retriveInfo = (e: any) => {
     console.log("fetching data");
@@ -35,6 +31,10 @@ export default function Home() {
       setWeather(response.weather.map((info: any) => info.main));
       setLon(response.coord.lon);
       setLat(response.coord.lat);
+    });
+
+    fetchForecastData(city).then((response) => {
+      setList(response.list);
     });
 
     setCity("");
@@ -69,7 +69,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex justify-center">
-          <div className="flex-col w-1/3 mt-2 mr-1 ml-20">
+          <div className="flex flex-col w-1/3 mt-2 mr-1 ml-20">
             <div className="p-3">
               {/*TEMPERATURE*/}
               <TempCard
@@ -79,12 +79,17 @@ export default function Home() {
                 data={data}
               />
             </div>
+            {/* FORECAST */}
             <div className="p-3">
-              {/* FORECAST */}
-              <ForecastCard />
+              <h2 className="text-xl font-extrabold ml-3">
+                Next 5 Days Forecast
+              </h2>
+            </div>
+            <div className="p-3 h-full">
+              <ForecastCard forecast={list} />
             </div>
           </div>
-          <div className="flex-col w-2/3 mt-2 ml-1 mr-20">
+          <div className="flex flex-col w-2/3 mt-2 ml-1 mr-20">
             <div className="p-3">
               {/*DETAILS ABOUT WEATHER*/}
               <DetailsCard data={data} lat={lat} lon={lon} />

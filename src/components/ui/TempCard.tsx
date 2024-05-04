@@ -30,7 +30,8 @@ export default function TempCard(props: any) {
                   {/* TEMPERATURA */} {Math.round(temp)}°
                 </div>
                 <div className="flex flex-col justify-center">
-                  {/* ICONA  */} <WeatherDynamicIcon descr={weather} />
+                  {/* ICONA  */}{" "}
+                  <WeatherDynamicIcon descr={weather} size={60} />
                 </div>
               </div>
               <div className="mr-10 ml-5 mt-3 font-light">{words}</div>

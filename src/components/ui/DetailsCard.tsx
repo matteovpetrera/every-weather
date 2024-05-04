@@ -30,12 +30,14 @@ export default function DetailsCard(props: any) {
     const [no2, setNo2] = useState(0);
     const [o3, setO3] = useState(0);
 
-    fetchAirPollutionData(lat, lon).then((response) => {
-      setPm2_5(response.list.map((l: any) => l.components.pm2_5));
-      setSo2(response.list.map((l: any) => l.components.so2));
-      setNo2(response.list.map((l: any) => l.components.no2));
-      setO3(response.list.map((l: any) => l.components.o3));
-    });
+    console.log("dentro details card");
+
+    // fetchAirPollutionData(lat, lon).then((response) => {
+    //   setPm2_5(response.list.map((l: any) => l.components.pm2_5));
+    //   setSo2(response.list.map((l: any) => l.components.so2));
+    //   setNo2(response.list.map((l: any) => l.components.no2));
+    //   setO3(response.list.map((l: any) => l.components.o3));
+    // });
 
     return (
       <Card className="h-full">
@@ -44,6 +46,7 @@ export default function DetailsCard(props: any) {
         </CardHeader>
         <CardContent className="flex flex-col gap-3 h-3/4">
           <div className="flex gap-3">
+            {/* AIR QUALITY CARD */}
             <Card className="w-1/2">
               <CardHeader>
                 <CardTitle className="flex text-sm font-light gap-1 text-muted-foreground">
@@ -94,6 +97,7 @@ export default function DetailsCard(props: any) {
                 </div>
               </CardContent>
             </Card>
+            {/* SUNRISE & SUNSET CARD */}
             <Card className="w-1/2">
               <CardHeader>
                 <CardTitle className="flex text-sm font-light gap-1 text-muted-foreground">
@@ -136,52 +140,52 @@ export default function DetailsCard(props: any) {
             <Card className="w-1/4">
               <CardHeader>
                 <CardTitle className="flex text-sm font-light gap-1 text-muted-foreground">
-                  <div>
-                    <Eye size={20}></Eye>
-                  </div>
                   Visibility
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex gap-5">
+                <div>
+                  <Eye size={30}></Eye>
+                </div>
                 <div className="text-2xl">{visibility}</div>
               </CardContent>
             </Card>
             <Card className="w-1/4">
               <CardHeader>
                 <CardTitle className="flex gap-1 text-sm font-light text-muted-foreground">
-                  <div>
-                    <Wind size={20}></Wind>
-                  </div>
                   Wind
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex gap-5">
+                <div>
+                  <Wind size={30}></Wind>
+                </div>
                 <div className="text-2xl">{Math.round(wind)} km/h</div>
               </CardContent>
             </Card>
             <Card className="w-1/4">
               <CardHeader>
                 <CardTitle className="flex gap-1 text-sm font-light text-muted-foreground">
-                  <div>
-                    <Waves size={20}></Waves>
-                  </div>
                   Humidity
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex gap-5">
+                <div>
+                  <Waves size={30}></Waves>
+                </div>
                 <div className="text-2xl">{humidity}%</div>
               </CardContent>
             </Card>
             <Card className="w-1/4">
               <CardHeader>
                 <CardTitle className="flex gap-1 text-sm font-light text-muted-foreground">
-                  <div>
-                    <ThermometerSun size={20}></ThermometerSun>
-                  </div>
                   Feels Like
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex gap-5">
+                <div>
+                  <ThermometerSun size={30}></ThermometerSun>
+                </div>
                 <div className="text-2xl">{Math.round(perceived)}°</div>
               </CardContent>
             </Card>
